@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Seguridad en Redes Sociales</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+header{
+    width:100%;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.25);
+    z-index:100;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#38bdf8;
+    letter-spacing:2px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#38bdf8;
+    left:0;
+    bottom:-5px;
+    transition:0.4s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:300px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    color:#38bdf8;
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-bottom:30px;
+    color:#cbd5e1;
+}
+
+.btn{
+    padding:15px 30px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(56,189,248,0.5);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px rgba(139,92,246,0.8);
+}
+
+.hero-img{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    min-width:300px;
+}
+
+.hero-img img{
+    width:400px;
+    max-width:100%;
+    animation:float 3s ease-in-out infinite;
+    filter:drop-shadow(0 0 25px rgba(56,189,248,0.6));
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* CARDS */
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+
+.cards-container{
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    width:320px;
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.5s;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:150%;
+    height:150%;
+    background:linear-gradient(45deg,transparent,#38bdf8,transparent);
+    top:-120%;
+    left:-120%;
+    transform:rotate(25deg);
+    transition:0.7s;
+}
+
+.card:hover::before{
+    top:100%;
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px rgba(56,189,248,0.6);
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:24px;
+    color:#38bdf8;
+}
+
+.card p{
+    color:#dbeafe;
+    line-height:1.6;
+}
+
+/* CONSEJOS */
+
+.tips{
+    padding:80px 40px;
+}
+
+.tip-box{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.tip{
+    background:linear-gradient(135deg,#1e293b,#334155);
+    padding:25px;
+    border-radius:20px;
+    width:250px;
+    text-align:center;
+    transition:0.4s;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.tip:hover{
+    transform:rotate(-2deg) scale(1.05);
+    background:linear-gradient(135deg,#0ea5e9,#8b5cf6);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+    padding:30px;
+    text-align:center;
+    background:rgba(0,0,0,0.4);
+    color:#cbd5e1;
+    box-shadow:0 -5px 20px rgba(0,0,0,0.5);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero-text h1{
+        font-size:45px;
+    }
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:30px;
+    }
+
+    .hero-text h1{
+        font-size:35px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">CyberSafe</div>
+
+    <nav>
+        <a href="Luero_seguridadehigiene.html">Inicio</a>
+        <a href="Consejos.html">Consejos</a>
+        <a href="Seguridad.html">Seguridad</a>
+        <a href="Contacto.html">Contactanos</a>
+    </nav>
+
+</header>
+
+<!-- HERO :0-->
+
+<section class="hero">
+
+    <div class="hero-text">
+        <h1>Seguridad en <span>Redes Sociales</span> y Uso Responsable de la Tecnología</h1>
+
+        <p>
+            Aprendé a proteger tu información personal, evitar riesgos digitales y usar la tecnología de manera inteligente y segura.
+        </p>
+
+        <a href="Consejos.html"><button class="btn">Explorar Consejos</button></a>
+    </div>
+
+    <div class="hero-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+    </div>
+
+</section>
+
+<!-- CARDS :p -->
+
+<h2 class="section-title">¿Cómo protegerte?</h2>
+
+<section class="cards-container">
+
+    <div class="card">
+        <h3>🔒 Contraseñas Seguras</h3>
+        <p>
+            Utilizá contraseñas largas con letras, números y símbolos. Nunca uses la misma contraseña en todas tus cuentas.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🛡️ Privacidad</h3>
+        <p>
+            Configurá quién puede ver tus publicaciones y evitá compartir datos personales como dirección o ubicación.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>⚠️ Cuidado con los Links</h3>
+        <p>
+            No hagas clic en enlaces sospechosos. Muchos pueden contener virus o intentos de robo de información.
+        </p>
+    </div>
+
+</section>
+
+<!-- CONSEJOS :D -->
+
+<section class="tips">
+
+    <h2 class="section-title">Buenas prácticas digitales</h2>
+
+    <div class="tip-box">
+
+        <div class="tip">
+            <h3>📱 Tiempo Responsable</h3>
+            <p>Controlá el tiempo frente a las pantallas y equilibrá tus actividades.</p>
+        </div>
+
+        <div class="tip">
+            <h3>🤝 Respeto Online</h3>
+            <p>Tratemos a los demás con respeto en internet y evitemos el ciberacoso.</p>
+        </div>
+
+        <div class="tip">
+            <h3>💻 Actualizaciones</h3>
+            <p>Mantené tus dispositivos actualizados para mejorar la seguridad.</p>
+        </div>
+
+        <div class="tip">
+            <h3>📧 Verificación</h3>
+            <p>Activá la verificación en dos pasos para mayor protección.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 CyberSafe | Tecnica 2-7º3
+</footer>
+
+</body>
+</html>
